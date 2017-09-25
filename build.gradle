@@ -1,7 +1,17 @@
 group 'org.nomadblacky'
 version '1.0-SNAPSHOT'
 
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.0'
+    }
+}
+
 apply plugin: 'java'
+apply plugin: 'org.junit.platform.gradle.plugin'
 
 sourceCompatibility = 9
 
@@ -10,7 +20,8 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '5.0.0'
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.0.0'
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-engine', version: '5.0.0'
 }
 
 wrapper {
